@@ -150,11 +150,16 @@ cmake --install .
 On Linux we utilise a CMake toolchain file to cross compile the native BOF object using the mingw compiler.  For the managed component, please make sure the dotnet command line tool is also installed from .NET core
 
 ```shell
+https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual -> Download installation .sh file
+chmod +x ./dotnet-install.sh
+./dotnet-install.sh
+export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX=$PWD/install -DCMAKE_BUILD_TYPE=MinSizeRel -DCMAKE_TOOLCHAIN_FILE=../toolchain/Linux-mingw64.cmake ..
 cmake --build .
 cmake --install .
+import CNA inside of build\dist\net40
 ```
 
 ### Docker
